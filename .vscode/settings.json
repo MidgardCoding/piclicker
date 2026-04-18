@@ -1,0 +1,4 @@
+{
+  "cmake.ignoreCMakeListsMissing": true,
+  "codium.codeCompletion.enable": false
+}
