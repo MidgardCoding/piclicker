@@ -9,20 +9,12 @@
 ╚═╝     ╚═╝ ╚═════╝╚══════╝╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 ```
 
-**PiClicker is a strategic clicker/idle game based on the number Pi and other mathematical values.** 
+**PiClicker is a strategic clicker/idle game based on the number Pi and other mathematical values.**
 
-<<<<<<< HEAD
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Status](https://img.shields.io/badge/status-alpha%20%E2%80%93%20active%20development-orange?style=flat-square)
-=======
-![Status](https://img.shields.io/badge/status-alpha%20%E2%80%93%20active%20development-orange?style=flat-square)
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
->>>>>>> e4f64515969b53db19f79d562d63f5cd2f60e9f8
-
 
 </div>
 
@@ -33,46 +25,42 @@
 > **Current phase: Alpha - active development**
 > Clicking mechanics, Thresholds (+ XP System), upgrades, robots, batteries, managers, expeditions - they all work. The rest needs work.
 
-| Feature | Status | Progress |
-|---|---|---|
-| Core clicker loop | ✅ Done | `████████████` 100% |
-| Combos (click multiplier) | ✅ Done | `████████████` 100% |
-| Thresholds 1–20 | ✅ Done | `████████████` 100% |
-| Robots (auto-click) | ✅ Done | `████████████` 100% |
-| Managers (offline work) | ✅ Done | `████████████` 100% |
-| Batteries (XP modifiers) | ✅ Done | `████████████` 100% |
-| Expeditions | 🟡 In progress | `██████░░░░░░` 50% |
-<<<<<<< HEAD
-| Robots (managing, Robot Market) | 🟡 In progress | `██████░░░░░░` 50% |
-=======
-| Robots (managing, Robot Market) | 🔵 Started | `███░░░░░░░░░` 25% |
->>>>>>> e4f64515969b53db19f79d562d63f5cd2f60e9f8
-| Store & Customization | ⬜ Planned | `░░░░░░░░░░░░` - |
-| Prestige & Ascension | ⬜ Planned | `░░░░░░░░░░░░` - |
-| Pi Parade events | ⬜ Planned | `░░░░░░░░░░░░` - |
-| The Pi Estate (tower mode) | ⬜ Planned | `░░░░░░░░░░░░` - |
-| Weekend Rushes | ⬜ Planned | `░░░░░░░░░░░░` - |
-| Daily Brawl | ⬜ Planned | `░░░░░░░░░░░░` - |
+| Feature                         | Status         | Progress            |
+| ------------------------------- | -------------- | ------------------- |
+| Core clicker loop               | ✅ Done        | `████████████` 100% |
+| Combos (click multiplier)       | ✅ Done        | `████████████` 100% |
+| Thresholds 1–20                 | ✅ Done        | `████████████` 100% |
+| Robots (auto-click)             | ✅ Done        | `████████████` 100% |
+| Managers (offline work)         | ✅ Done        | `████████████` 100% |
+| Batteries (XP modifiers)        | ✅ Done        | `████████████` 100% |
+| Expeditions                     | 🟡 In progress | `██████░░░░░░` 50%  |
+| Robots (managing, Robot Market) | 🟡 In progress | `██████░░░░░░` 50%  |
+| Store & Customization           | ⬜ Planned     | `░░░░░░░░░░░░` -    |
+| Prestige & Ascension            | ⬜ Planned     | `░░░░░░░░░░░░` -    |
+| Pi Parade events                | ⬜ Planned     | `░░░░░░░░░░░░` -    |
+| The Pi Estate (tower mode)      | ⬜ Planned     | `░░░░░░░░░░░░` -    |
+| Weekend Rushes                  | ⬜ Planned     | `░░░░░░░░░░░░` -    |
+| Daily Brawl                     | ⬜ Planned     | `░░░░░░░░░░░░` -    |
 
 ---
 
 ## ⚙️ Core Mechanics
 
-### Combos *(available from the start)*
+### Combos _(available from the start)_
 
 Available from the start, Combos act as click multipliers. This mechanic rewards manual clicking rather than automation.
 
 - **Each purchase doubles the multiplier**: ×2 → ×4 → ×8, etc.
 - Combos do **not** affect robot clicks.
 
-### 🤖 Robots *(Unlocked at Threshold 3)*
+### 🤖 Robots _(Unlocked at Threshold 3)_
 
 Robots click automatically when you are away. Each robot has:
 
 - **Power** - milliseconds required per click.
 - **Cores** - number of clicks performed at once.
 
-### 👔 Managers *(Unlocked at Threshold 6)*
+### 👔 Managers _(Unlocked at Threshold 6)_
 
 Managers allow robots to work even when the game is closed.
 
@@ -82,7 +70,7 @@ Managers allow robots to work even when the game is closed.
 - Rarity tiers: `Basic`, `Super`, `Epic`, `Legendary`, `Master`.
 - Stats: Daily wage (percentage of player’s earned points) and work time - both increase with rarity.
 
-### ⚡ Batteries *(Unlocked at Threshold 9)*
+### ⚡ Batteries _(Unlocked at Threshold 9)_
 
 - **Additive** - adds a fixed XP/click value.
 - **Multiplicative** - multiplies current XP/click.
@@ -90,7 +78,7 @@ Managers allow robots to work even when the game is closed.
 
 Batteries can be purchased once a certain number of total clicks is reached. Purchasing does **not** consume clicks.
 
-### 🎨 Interface Customization *(Unlocked at Threshold 12)*
+### 🎨 Interface Customization _(Unlocked at Threshold 12)_
 
 The Store offers:
 
@@ -101,7 +89,7 @@ The Store offers:
 
 Settings include an option to select newly purchased or unlocked customizations.
 
-### 🧭 Expeditions *(Unlocked at Threshold 15)*
+### 🧭 Expeditions _(Unlocked at Threshold 15)_
 
 A passive resource-gathering system. Send an idle manager (not working or already on an expedition) to a randomly generated location (seeded).
 
@@ -135,6 +123,7 @@ Prestige (rebirth) unlocks after completing all 20 Thresholds. It resets the gam
 - Each Prestige gives 1 Prestige Point (PP), with the amount increasing per reset. PP can be spent in the Store.
 
 **Ascension** unlocks after **5 resets**:
+
 - Each reset grants **1 Ascension Shard** (+1 per subsequent reset)
 - Reset cost: starts at `1 No (nonyllion)`, multiplies by ×1000 each reset
 - Shards buy permanent upgrades: `+50% global XP`, `-20% in-game prices`, etc.
@@ -176,14 +165,14 @@ Optional daily challenge: reduce a starting point value to zero by clicking. Rob
 
 Every day there is a **1-in-24 chance** for the Pi Parade. One of seven special buttons appears:
 
-| Button | Mechanic |
-|---|---|
-| 🔴 Red | Works like the main button |
-| 🩵 Cyan | Starts like main, each click increases its value by 0.1‰ |
-| 🟠 Orange | Only 1/3 of clicks register, but each gives 3× normal value |
-| 🔵 Blue | Alternate: main -> Blue -> main -> Blue. Each unbroken sequence +1% click value |
-| 🟣 Purple | Hold to gain points at ×4 click value |
-| 🟢 Green | Both main button and Green button gain +25% click value |
+| Button    | Mechanic                                                                                     |
+| --------- | -------------------------------------------------------------------------------------------- |
+| 🔴 Red    | Works like the main button                                                                   |
+| 🩵 Cyan   | Starts like main, each click increases its value by 0.1‰                                     |
+| 🟠 Orange | Only 1/3 of clicks register, but each gives 3× normal value                                  |
+| 🔵 Blue   | Alternate: main -> Blue -> main -> Blue. Each unbroken sequence +1% click value              |
+| 🟣 Purple | Hold to gain points at ×4 click value                                                        |
+| 🟢 Green  | Both main button and Green button gain +25% click value                                      |
 | 🟡 Yellow | Maintain a random CPS target (±5 CPS). Miss 1 min → value halved. Hold 1 min → value tripled |
 
 ---
@@ -191,6 +180,7 @@ Every day there is a **1-in-24 chance** for the Pi Parade. One of seven special 
 ## 🛡️ Click Rate Inspector (CRI)
 
 The CRI discourages auto-clickers, especially during The Pi Estate and Weekend Rushes.
+
 - Disabled by default; auto-activates in competitive modes
 - Player sets a CPS limit (default: **10 CPS**)
 - Clicks above the limit are silently ignored
@@ -200,7 +190,7 @@ The CRI discourages auto-clickers, especially during The Pi Estate and Weekend R
 
 ## 🌐 PiClicker Infinite Subscription
 
-> *"Break the finite. Make it infinite."*
+> _"Break the finite. Make it infinite."_
 
 **$3.14 / month** - because of course it is !
 
@@ -224,6 +214,7 @@ flutter pub get
 # 3. Start the emulated launch
 flutter run
 ```
+
 [Learn more about Flutter and app debugging](https://docs.flutter.dev/testing/debugging)
 
 ---
