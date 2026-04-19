@@ -11,10 +11,17 @@
 
 **PiClicker is a strategic clicker/idle game based on the number Pi and other mathematical values.** 
 
+<<<<<<< HEAD
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Status](https://img.shields.io/badge/status-alpha%20%E2%80%93%20active%20development-orange?style=flat-square)
+=======
+![Status](https://img.shields.io/badge/status-alpha%20%E2%80%93%20active%20development-orange?style=flat-square)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+>>>>>>> e4f64515969b53db19f79d562d63f5cd2f60e9f8
 
 
 </div>
@@ -35,7 +42,11 @@
 | Managers (offline work) | ✅ Done | `████████████` 100% |
 | Batteries (XP modifiers) | ✅ Done | `████████████` 100% |
 | Expeditions | 🟡 In progress | `██████░░░░░░` 50% |
+<<<<<<< HEAD
 | Robots (managing, Robot Market) | 🟡 In progress | `██████░░░░░░` 50% |
+=======
+| Robots (managing, Robot Market) | 🔵 Started | `███░░░░░░░░░` 25% |
+>>>>>>> e4f64515969b53db19f79d562d63f5cd2f60e9f8
 | Store & Customization | ⬜ Planned | `░░░░░░░░░░░░` - |
 | Prestige & Ascension | ⬜ Planned | `░░░░░░░░░░░░` - |
 | Pi Parade events | ⬜ Planned | `░░░░░░░░░░░░` - |
