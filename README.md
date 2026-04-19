@@ -205,7 +205,7 @@ Ads appear when rerolling expedition seeds or daily manager offers beyond the fr
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourname/piclicker
+git clone https://github.com/MidgardCoding/piclicker
 cd piclicker
 
 # 2. Install dependencies
