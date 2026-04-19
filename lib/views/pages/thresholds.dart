@@ -178,14 +178,14 @@ class ThresholdBlock extends StatelessWidget {
         boxShadow: available
             ? [
                 BoxShadow(
-                  color: mainColor.withOpacity(0.3),
+                  color: mainColor.withValues(alpha: 0.3),
                   blurRadius: 10,
                   spreadRadius: 1,
                 ),
               ]
             : [],
         gradient: LinearGradient(
-          colors: [mainColor, mainColor.withOpacity(0.35)],
+          colors: [mainColor, mainColor.withValues(alpha: 0.35)],
         ),
       ),
       child: Container(
@@ -201,7 +201,7 @@ class ThresholdBlock extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: mainColor.withOpacity(0.1),
+                color: mainColor.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(

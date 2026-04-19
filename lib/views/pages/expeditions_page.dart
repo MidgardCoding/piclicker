@@ -181,7 +181,7 @@ class _ExpeditionsPageState extends State<ExpeditionsPage>
                           }
 
                           return Card(
-                            color: Colors.white.withOpacity(0.05),
+                            color: Colors.white.withValues(alpha: 0.05),
                             margin: const EdgeInsets.symmetric(vertical: 8),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -386,8 +386,8 @@ class _ExpeditionsPageState extends State<ExpeditionsPage>
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? secondaryColor.withOpacity(0.4)
-                              : Colors.black.withOpacity(0.5),
+                              ? secondaryColor.withValues(alpha: 0.4)
+                              : Colors.black.withValues(alpha: 0.5),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             color: isSelected ? secondaryColor : Colors.white10,
@@ -552,7 +552,7 @@ class _ExpeditionsPageState extends State<ExpeditionsPage>
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [primaryColor, secondaryColor.withOpacity(0.8)],
+                colors: [primaryColor, secondaryColor.withValues(alpha: 0.8)],
               ),
             ),
           ),
@@ -594,7 +594,7 @@ class _ExpeditionsPageState extends State<ExpeditionsPage>
                 filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                 child: Container(
                   padding: const EdgeInsets.all(25),
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withValues(alpha: 0.7),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [

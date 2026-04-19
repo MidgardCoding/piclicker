@@ -170,7 +170,7 @@ class _ManagersPageState extends State<ManagersPage> {
   ) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black.withOpacity(0.2),
+        backgroundColor: Colors.black.withValues(alpha: 0.2),
         flexibleSpace: ClipRect(
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -200,7 +200,7 @@ class _ManagersPageState extends State<ManagersPage> {
               builder: (BuildContext context) => BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: AlertDialog(
-                  backgroundColor: Colors.black.withOpacity(0.8),
+                  backgroundColor: Colors.black.withValues(alpha: 0.8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                     side: const BorderSide(color: Colors.tealAccent, width: 1),
@@ -255,10 +255,10 @@ class _ManagersPageState extends State<ManagersPage> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.05),
+                        color: Colors.white.withValues(alpha: 0.05),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.1),
+                          color: Colors.white.withValues(alpha: 0.1),
                         ),
                       ),
                       child: Column(
@@ -351,9 +351,9 @@ class _ManagersPageState extends State<ManagersPage> {
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.white.withOpacity(0.1)),
+                border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
               ),
               child: Column(
                 children: [
@@ -412,7 +412,9 @@ class _ManagersPageState extends State<ManagersPage> {
                                 children: [
                                   TableRow(
                                     decoration: BoxDecoration(
-                                      color: Colors.tealAccent.withOpacity(0.2),
+                                      color: Colors.tealAccent.withValues(
+                                        alpha: 0.2,
+                                      ),
                                     ),
                                     children: [
                                       TableCell(child: _tableHeader("Select")),
@@ -439,7 +441,9 @@ class _ManagersPageState extends State<ManagersPage> {
                                     return TableRow(
                                       decoration: BoxDecoration(
                                         color: isSelected
-                                            ? Colors.green.withOpacity(0.2)
+                                            ? Colors.green.withValues(
+                                                alpha: 0.2,
+                                              )
                                             : Colors.grey[850],
                                       ),
                                       children: [
@@ -512,7 +516,7 @@ class _ManagersPageState extends State<ManagersPage> {
                                                       ),
                                                   decoration: BoxDecoration(
                                                     color: rarityColor
-                                                        .withOpacity(0.2),
+                                                        .withValues(alpha: 0.2),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                           4,
@@ -613,7 +617,7 @@ class _ManagersPageState extends State<ManagersPage> {
     // Portrait layout
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black.withOpacity(0.2),
+        backgroundColor: Colors.black.withValues(alpha: 0.2),
         flexibleSpace: ClipRect(
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -643,7 +647,7 @@ class _ManagersPageState extends State<ManagersPage> {
               builder: (BuildContext context) => BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: AlertDialog(
-                  backgroundColor: Colors.black.withOpacity(0.8),
+                  backgroundColor: Colors.black.withValues(alpha: 0.8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                     side: const BorderSide(color: Colors.black, width: 1),
@@ -715,9 +719,11 @@ class _ManagersPageState extends State<ManagersPage> {
                   ),
                   margin: const EdgeInsets.all(18.0),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.05),
+                    color: Colors.white.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.1)),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.1),
+                    ),
                   ),
                   child: Column(
                     children: [
@@ -832,9 +838,11 @@ class _ManagersPageState extends State<ManagersPage> {
               Container(
                 margin: EdgeInsets.all(18.0),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.05),
+                  color: Colors.white.withValues(alpha: 0.05),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white.withOpacity(0.1)),
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.1),
+                  ),
                 ),
                 child: Column(
                   children: [
@@ -1025,8 +1033,8 @@ class _ManagersPageState extends State<ManagersPage> {
                                             return TableRow(
                                               decoration: BoxDecoration(
                                                 color: isSelected
-                                                    ? Colors.green.withOpacity(
-                                                        0.2,
+                                                    ? Colors.green.withValues(
+                                                        alpha: 0.2,
                                                       )
                                                     : Colors.grey[850],
                                               ),
@@ -1116,7 +1124,9 @@ class _ManagersPageState extends State<ManagersPage> {
                                                           ),
                                                       decoration: BoxDecoration(
                                                         color: rarityColor
-                                                            .withOpacity(0.2),
+                                                            .withValues(
+                                                              alpha: 0.2,
+                                                            ),
                                                         borderRadius:
                                                             BorderRadius.circular(
                                                               4,

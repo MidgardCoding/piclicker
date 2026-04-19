@@ -67,7 +67,7 @@ class _BatteriesPageState extends State<BatteriesPage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.black.withOpacity(0.2),
+        backgroundColor: Colors.black.withValues(alpha: 0.2),
         elevation: 0,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
@@ -107,9 +107,9 @@ class _BatteriesPageState extends State<BatteriesPage> {
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: Colors.tealAccent.withOpacity(0.1),
+          color: Colors.tealAccent.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.tealAccent.withOpacity(0.3)),
+          border: Border.all(color: Colors.tealAccent.withValues(alpha: 0.3)),
         ),
         child: Row(
           children: [
@@ -133,9 +133,9 @@ class _BatteriesPageState extends State<BatteriesPage> {
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
       ),
       child: Column(
         children: [
@@ -161,19 +161,19 @@ class _BatteriesPageState extends State<BatteriesPage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: isHovering
-                      ? Colors.tealAccent.withOpacity(0.2)
-                      : Colors.black.withOpacity(0.3),
+                      ? Colors.tealAccent.withValues(alpha: 0.2)
+                      : Colors.black.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: isHovering
                         ? Colors.tealAccent
-                        : Colors.teal.withOpacity(0.3),
+                        : Colors.teal.withValues(alpha: 0.3),
                     width: 2,
                   ),
                   boxShadow: isHovering
                       ? [
                           BoxShadow(
-                            color: Colors.tealAccent.withOpacity(0.2),
+                            color: Colors.tealAccent.withValues(alpha: 0.2),
                             blurRadius: 15,
                           ),
                         ]
@@ -341,8 +341,8 @@ class _BatteriesPageState extends State<BatteriesPage> {
           margin: const EdgeInsets.only(right: 12),
           decoration: BoxDecoration(
             color: isActive
-                ? Colors.tealAccent.withOpacity(0.1)
-                : Colors.white.withOpacity(0.05),
+                ? Colors.tealAccent.withValues(alpha: 0.1)
+                : Colors.white.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               color: isActive ? Colors.tealAccent : Colors.white10,
@@ -374,11 +374,11 @@ class _BatteriesPageState extends State<BatteriesPage> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
           color: isPurchased
-              ? Colors.greenAccent.withOpacity(0.5)
+              ? Colors.greenAccent.withValues(alpha: 0.5)
               : Colors.white10,
         ),
       ),
@@ -418,7 +418,7 @@ class _BatteriesPageState extends State<BatteriesPage> {
                     )
                   : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.tealAccent.withOpacity(0.2),
+                backgroundColor: Colors.tealAccent.withValues(alpha: 0.2),
                 foregroundColor: Colors.tealAccent,
                 elevation: 0,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -486,7 +486,7 @@ class _BatteriesPageState extends State<BatteriesPage> {
       builder: (context) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
-          backgroundColor: Colors.black.withOpacity(0.8),
+          backgroundColor: Colors.black.withValues(alpha: 0.8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
             side: const BorderSide(color: Colors.tealAccent),

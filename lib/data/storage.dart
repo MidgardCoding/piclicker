@@ -7,7 +7,7 @@ import 'dart:ui';
 
 class UserStorage {
   // Persistent fields
-  double counter = 0.0;
+  double counter = 0;
   int picount = 0;
   double clickValue = 3.14;
   String buttonText = "π";
@@ -18,6 +18,8 @@ class UserStorage {
 
   // Purchased robots as list of {id: true}
   List<Map<int, bool>> purchasedRobots = [];
+  // Active robots
+  Set<int> activeRobotIds = {};
 
   // Purchased boosters as list of ids
   List<int> purchasedBoosters = [];
@@ -45,6 +47,9 @@ class UserStorage {
   int activeBatteryId = -1; // Currently active battery (-1 = none)
   List<int> purchasedBatteryIds = []; // List of purchased battery IDs
 
+  // Daily robot market offers
+  List<int> marketRobotIds = [];
+
   // Last session timestamp for offline calculation
   DateTime? lastSessionTime;
 
@@ -59,6 +64,8 @@ class UserStorage {
   DateTime? expeditionStartTime;
   String? expeditionManagerId;
   List<Map<String, dynamic>> activeExpeditions = [];
+
+  String? lastMarketRefresh;
 
   // Tutorial completion tracking
   bool _tutorialThresholdsCompleted = false;
@@ -108,6 +115,9 @@ class UserStorage {
   static const _kTutorialBatteries = 'tutorial_batteries_completed';
   static const _kTutorialExpeditions = 'tutorial_expeditions_completed';
   static const _kTutorialSubscription = 'tutorial_subscription_completed';
+  static const _kActiveRobotIds = 'activeRobotIds';
+  static const _kMarketRobotIds = 'marketRobotIds';
+  static const _kLastMarketRefresh = 'lastMarketRefresh';
 
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -230,6 +240,27 @@ class UserStorage {
         prefs.getBool(_kTutorialExpeditions) ?? false;
     _tutorialSubscriptionCompleted =
         prefs.getBool(_kTutorialSubscription) ?? false;
+
+    // Load active robot IDs
+    final activeIdsStr = prefs.getStringList(_kActiveRobotIds) ?? [];
+    activeRobotIds = activeIdsStr
+        .map((s) => int.tryParse(s) ?? 0)
+        .where((id) => id > 0)
+        .toSet();
+
+    // Load market robot IDs
+    final marketIdsStr = prefs.getStringList(_kMarketRobotIds) ?? <String>[];
+    marketRobotIds = marketIdsStr
+        .map((s) => int.tryParse(s))
+        .whereType<int>()
+        .toList();
+
+    // Migrate: if no active robots but purchased exist, activate all
+    if (activeRobotIds.isEmpty && purchasedRobots.isNotEmpty) {
+      activeRobotIds = purchasedRobots.map((e) => e.keys.first).toSet();
+    }
+
+    lastMarketRefresh = prefs.getString(_kLastMarketRefresh);
   }
 
   Future<void> save() async {
@@ -343,6 +374,22 @@ class UserStorage {
     await prefs.setBool(_kTutorialBatteries, _tutorialBatteriesCompleted);
     await prefs.setBool(_kTutorialExpeditions, _tutorialExpeditionsCompleted);
     await prefs.setBool(_kTutorialSubscription, _tutorialSubscriptionCompleted);
+
+    // Save active robot IDs
+    await prefs.setStringList(
+      _kActiveRobotIds,
+      activeRobotIds.map((id) => id.toString()).toList(),
+    );
+
+    // Save market robot IDs
+    final marketIds = marketRobotIds.map((id) => id.toString()).toList();
+    await prefs.setStringList(_kMarketRobotIds, marketIds);
+
+    if (lastMarketRefresh != null) {
+      await prefs.setString(_kLastMarketRefresh, lastMarketRefresh!);
+    } else {
+      await prefs.remove(_kLastMarketRefresh);
+    }
   }
 
   /// Check if tutorial for given page is completed
@@ -640,6 +687,29 @@ class UserStorage {
     }
   }
 
+  /// Active robot status
+  bool isRobotActive(int id) => activeRobotIds.contains(id);
+
+  /// Toggle robot active status
+  Future<void> toggleRobotActive(int id) async {
+    if (activeRobotIds.contains(id)) {
+      activeRobotIds.remove(id);
+    } else {
+      activeRobotIds.add(id);
+    }
+    await save();
+  }
+
+  /// Remove robot from purchased and active
+  Future<void> removeRobot(int id) async {
+    activeRobotIds.remove(id);
+    purchasedRobots.removeWhere((e) => e.keys.first == id);
+    await save();
+  }
+
+  /// Number of active robots (working)
+  int get activeRobotCount => activeRobotIds.length;
+
   // Get the number of active robots
 
   Future<void> addXp(double amount, {BuildContext? context}) async {
@@ -678,7 +748,7 @@ class UserStorage {
       builder: (BuildContext ctx) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
-          backgroundColor: Colors.black.withOpacity(0.8),
+          backgroundColor: Colors.black.withValues(alpha: 0.8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
             side: const BorderSide(color: Colors.tealAccent, width: 1),
@@ -779,6 +849,31 @@ class UserStorage {
   }
 
   int get robotCount => purchasedRobots.length;
+
+  bool hasRobot(int id) => purchasedRobots.any((m) => m.keys.first == id);
+
+  Future<bool> purchaseRobot(int id) async {
+    bool success = false;
+    if (!hasRobot(id)) {
+      purchasedRobots.add({id: true});
+      activeRobotIds.add(id);
+      await save();
+      success = true;
+    }
+    return success;
+  }
+
+  bool get isNewMarketDay {
+    if (lastMarketRefresh == null || marketRobotIds.isEmpty) return true;
+    final today = DateTime.now().toIso8601String().split('T')[0];
+    return today != lastMarketRefresh;
+  }
+
+  Future<void> refreshMarket() async {
+    final today = DateTime.now().toIso8601String().split('T')[0];
+    lastMarketRefresh = today;
+    await save();
+  }
 }
 
 final UserStorage userStorage = UserStorage();

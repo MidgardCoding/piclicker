@@ -21,7 +21,10 @@ class ProTipWidget extends StatelessWidget {
       margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         color: Colors.teal.withValues(alpha: 0.1),
-        border: Border.all(color: Colors.tealAccent.withOpacity(0.5), width: 1),
+        border: Border.all(
+          color: Colors.tealAccent.withValues(alpha: 0.5),
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(15),
       ),
       child: ClipRRect(

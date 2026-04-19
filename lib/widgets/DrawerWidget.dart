@@ -30,8 +30,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     String pageKey,
   ) {
     userStorage.save();
-    Navigator.of(context).pop(); // Zamknij drawer
-    Navigator.of(context).popUntil((route) => route.isFirst); // Wróć do bazy
+    Navigator.of(context).pop();
+    Navigator.of(context).popUntil((route) => route.isFirst);
     if (userStorage.isTutorialCompleted(pageKey)) {
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
     } else {
@@ -84,13 +84,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     final bool unlockedExpeditions = level >= 15;
 
     return Drawer(
-      backgroundColor: const Color(0xFF001214), // Głęboka czerń/morski
+      backgroundColor: const Color(0xFF001214),
       child: Column(
         children: [
-          // --- NAGŁÓWEK DRAWERA ---
           _buildHeader(xp, progress, level, nextThreshold),
-
-          // --- LISTA OPCJI ---
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -106,7 +103,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   },
                 ),
                 const SizedBox(height: 8),
-                _buildPremiumItem(context), // Specjalny przycisk Infinity
+                _buildPremiumItem(context),
                 const SizedBox(height: 8),
                 const Divider(color: Colors.white10),
                 _buildMenuItem(
@@ -217,8 +214,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ],
             ),
           ),
-
-          // --- STOPKA ---
           _buildFooter(),
         ],
       ),
@@ -319,7 +314,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         onTap: onTap,
         dense: true,
-        hoverColor: isUnlocked ? color.withOpacity(0.1) : Colors.transparent,
+        hoverColor: isUnlocked
+            ? color.withValues(alpha: 0.1)
+            : Colors.transparent,
       ),
     );
   }
@@ -332,7 +329,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         ),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
-          BoxShadow(color: Colors.purple.withOpacity(0.3), blurRadius: 8),
+          BoxShadow(color: Colors.purple.withValues(alpha: 0.3), blurRadius: 8),
         ],
       ),
       child: ListTile(

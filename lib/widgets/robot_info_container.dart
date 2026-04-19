@@ -8,12 +8,20 @@ class RobotInfoContainer extends StatefulWidget {
     required this.description,
     required this.price,
     required this.type,
+    required this.robotId,
+    required this.isActive,
+    this.onToggle,
+    this.onDelete,
   });
 
   final String title;
   final String description;
   final double price;
   final String type;
+  final int robotId;
+  final bool isActive;
+  final VoidCallback? onToggle;
+  final VoidCallback? onDelete;
 
   @override
   State<RobotInfoContainer> createState() => _RobotInfoContainerState();
@@ -78,39 +86,48 @@ class _RobotInfoContainerState extends State<RobotInfoContainer> {
                 context,
               ).copyWith(dividerColor: Colors.transparent),
               child: ExpansionTile(
-                iconColor: Colors.tealAccent,
-                collapsedIconColor: Colors.tealAccent,
-                title: Row(
+                iconColor: cardColor,
+                collapsedIconColor: cardColor,
+                title: Column(
                   children: [
-                    Text(
-                      widget.title,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: cardColor.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: cardColor.withValues(alpha: 0.5),
-                        ),
-                      ),
-                      child: Text(
-                        widget.type,
-                        style: TextStyle(
+                    Row(
+                      children: [
+                        Icon(
+                          widget.isActive ? Icons.verified : Icons.block,
                           color: cardColor,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
                         ),
-                      ),
+                        const SizedBox(width: 12),
+                        Text(
+                          widget.title,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: cardColor.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: cardColor.withValues(alpha: 0.5),
+                            ),
+                          ),
+                          child: Text(
+                            widget.type,
+                            style: TextStyle(
+                              color: cardColor,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -125,6 +142,57 @@ class _RobotInfoContainerState extends State<RobotInfoContainer> {
                         _buildDataRow("Information", widget.description),
                         _buildDataRow("Price", widget.price.toStringAsFixed(2)),
                         _buildDataRow("Type", widget.type),
+                        const SizedBox(width: 20.0),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: widget.isActive
+                                ? Colors.white
+                                : cardColor,
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onPressed: widget.onToggle ?? () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                widget.isActive ? Icons.block : Icons.verified,
+                              ),
+                              const SizedBox(width: 10.0),
+                              Text(
+                                widget.isActive ? "Deactivate" : "Activate",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.redAccent,
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onPressed: widget.onDelete ?? () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.delete),
+                              const SizedBox(width: 10.0),
+                              Text(
+                                "Delete",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

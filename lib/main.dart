@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:piclicker/data/constants.dart';
 import 'package:piclicker/data/storage.dart';
 import 'package:piclicker/widgets/DrawerWidget.dart';
+import 'package:piclicker/data/robot_manager.dart';
 
 void main() {
   runApp(const HomePage());
@@ -93,8 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int playerClicks = 0;
   int robotClicks = 0;
 
-  final List<Timer> _robotTimers = [];
-
   bool _loaded = false;
 
   final bool _forceShowBottomBar = false;
@@ -176,20 +175,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
     await _calculateOfflineEarnings();
 
+    // Initialize robot manager
+    RobotManager.init(
+      onRobotTick: () {
+        setState(() {
+          _counter += clickValue * _totalRobotBoost;
+          robotClicks++;
+        });
+        _persistState();
+      },
+      clickValue: clickValue,
+      robotBoost: _totalRobotBoost,
+    );
+
+    // Start timers for active purchased robots
     for (final entry in userStorage.purchasedRobots) {
       final id = entry.keys.first;
-      final robot = robots.firstWhere((r) => r['id'] == id, orElse: () => {});
-      if (robot.isNotEmpty) {
-        final int power = robot['power'] as int;
-        final int cores = robot['cores'] as int;
-        final timer = Timer.periodic(Duration(milliseconds: power), (t) {
-          setState(() {
-            _counter += clickValue * cores * _totalRobotBoost;
-            robotClicks++;
-          });
-          _persistState();
-        });
-        _robotTimers.add(timer);
+      if (userStorage.isRobotActive(id)) {
+        final robot = robots.firstWhere((r) => r['id'] == id);
+        RobotManager.ensureRobotRunning(id);
       }
     }
 
@@ -216,8 +220,8 @@ class _MyHomePageState extends State<MyHomePage> {
     final effectiveHours = offlineHours > managerMaxHours
         ? managerMaxHours
         : offlineHours;
-    final robotCount = userStorage.purchasedRobots.length;
-    if (robotCount == 0) return;
+    final activeRobotIds = userStorage.activeRobotIds;
+    if (activeRobotIds.isEmpty) return;
 
     // XP system - no energy consumption
 
@@ -257,9 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    for (var timer in _robotTimers) {
-      timer.cancel();
-    }
+    RobotManager.stopAll();
     super.dispose();
   }
 
@@ -287,18 +289,10 @@ class _MyHomePageState extends State<MyHomePage> {
         (e) => e.keys.first == purchasedId,
       )) {
         userStorage.purchasedRobots.add({purchasedId: true});
+        // Activate new robot by default
+        userStorage.activeRobotIds.add(purchasedId);
       }
-
-      final int power = robots[robotLevel - 1]['power'] as int;
-      final int cores = robots[robotLevel - 1]['cores'] as int;
-      Timer newTimer = Timer.periodic(Duration(milliseconds: power), (timer) {
-        setState(() {
-          _counter += clickValue * cores * _totalRobotBoost;
-          robotClicks++;
-        });
-        _persistState();
-      });
-      _robotTimers.add(newTimer);
+      RobotManager.ensureRobotRunning(purchasedId);
       _persistState();
     } else {
       HapticFeedback.selectionClick();

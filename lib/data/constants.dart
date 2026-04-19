@@ -159,6 +159,7 @@ class Upgrades {
       'power': 2959,
       'cores': 1,
       'type': 'Microcomputer',
+      'accessible_for': 'player',
     },
     {
       'id': 2,
@@ -167,6 +168,7 @@ class Upgrades {
       'power': 2645,
       'cores': 1,
       'type': 'Microcomputer',
+      'accessible_for': 'player',
     },
     {
       'id': 3,
@@ -175,6 +177,7 @@ class Upgrades {
       'power': 2331,
       'cores': 1,
       'type': 'Microcomputer',
+      'accessible_for': 'player',
     },
     {
       'id': 4,
@@ -183,6 +186,7 @@ class Upgrades {
       'power': 2017,
       'cores': 2,
       'type': 'Microcomputer',
+      'accessible_for': 'player',
     },
     {
       'id': 5,
@@ -191,6 +195,7 @@ class Upgrades {
       'power': 1860,
       'cores': 2,
       'type': 'Microcomputer',
+      'accessible_for': 'player',
     },
     {
       'id': 6,
@@ -199,6 +204,7 @@ class Upgrades {
       'power': 1703,
       'cores': 2,
       'type': 'Microserver',
+      'accessible_for': 'player',
     },
     {
       'id': 7,
@@ -207,6 +213,7 @@ class Upgrades {
       'power': 1546,
       'cores': 3,
       'type': 'Microserver',
+      'accessible_for': 'player',
     },
     {
       'id': 8,
@@ -215,6 +222,7 @@ class Upgrades {
       'power': 1389,
       'cores': 3,
       'type': 'Microserver',
+      'accessible_for': 'player',
     },
     {
       'id': 9,
@@ -223,6 +231,7 @@ class Upgrades {
       'power': 1232,
       'cores': 3,
       'type': 'Microserver',
+      'accessible_for': 'player',
     },
     {
       'id': 10,
@@ -231,14 +240,16 @@ class Upgrades {
       'power': 1075,
       'cores': 3,
       'type': 'Microserver',
+      'accessible_for': 'player',
     },
     {
       'id': 11,
-      'name': 'CL1CK H3R0 j2-98000E/12/128',
+      'name': 'CL1CK H3R0 j2',
       'price': 5678901.00,
       'power': 918,
       'cores': 3,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 12,
@@ -247,6 +258,7 @@ class Upgrades {
       'power': 820,
       'cores': 4,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 13,
@@ -255,6 +267,7 @@ class Upgrades {
       'power': 722,
       'cores': 4,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 14,
@@ -263,6 +276,7 @@ class Upgrades {
       'power': 624,
       'cores': 4,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 15,
@@ -271,6 +285,7 @@ class Upgrades {
       'power': 526,
       'cores': 4,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 16,
@@ -279,6 +294,7 @@ class Upgrades {
       'power': 506,
       'cores': 4,
       'type': 'Mini PC',
+      'accessible_for': 'player',
     },
     {
       'id': 17,
@@ -287,6 +303,7 @@ class Upgrades {
       'power': 496,
       'cores': 4,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 18,
@@ -295,6 +312,7 @@ class Upgrades {
       'power': 486,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 19,
@@ -303,6 +321,7 @@ class Upgrades {
       'power': 478,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 20,
@@ -311,6 +330,7 @@ class Upgrades {
       'power': 471,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 21,
@@ -319,6 +339,7 @@ class Upgrades {
       'power': 464,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 22,
@@ -327,6 +348,7 @@ class Upgrades {
       'power': 459,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 23,
@@ -335,6 +357,7 @@ class Upgrades {
       'power': 455,
       'cores': 5,
       'type': 'Laptop',
+      'accessible_for': 'player',
     },
     {
       'id': 24,
@@ -343,6 +366,7 @@ class Upgrades {
       'power': 451,
       'cores': 6,
       'type': 'Computer',
+      'accessible_for': 'player',
     },
     {
       'id': 25,
@@ -351,6 +375,7 @@ class Upgrades {
       'power': 447,
       'cores': 6,
       'type': 'Computer',
+      'accessible_for': 'player',
     },
     {
       'id': 26,
@@ -359,6 +384,7 @@ class Upgrades {
       'power': 443,
       'cores': 6,
       'type': 'Computer',
+      'accessible_for': 'player',
     },
     {
       'id': 27,
@@ -367,6 +393,7 @@ class Upgrades {
       'power': 439,
       'cores': 6,
       'type': 'Computer',
+      'accessible_for': 'player',
     },
     {
       'id': 28,
@@ -375,6 +402,7 @@ class Upgrades {
       'power': 435,
       'cores': 6,
       'type': 'Computer',
+      'accessible_for': 'player',
     },
   ];
 }

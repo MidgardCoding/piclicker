@@ -105,7 +105,9 @@ class _TutorialPageState extends State<TutorialPage>
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.tealAccent.withOpacity(0.15),
+                                  color: Colors.tealAccent.withValues(
+                                    alpha: 0.15,
+                                  ),
                                   blurRadius: 30,
                                   spreadRadius: 2,
                                 ),
@@ -251,8 +253,8 @@ class _TutorialPageState extends State<TutorialPage>
                                     borderRadius: BorderRadius.circular(30),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.tealAccent.withOpacity(
-                                          0.15,
+                                        color: Colors.tealAccent.withValues(
+                                          alpha: 0.15,
                                         ),
                                         blurRadius: 30,
                                         spreadRadius: 2,
@@ -335,8 +337,8 @@ class _TutorialPageState extends State<TutorialPage>
                                     borderRadius: BorderRadius.circular(30),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.tealAccent.withOpacity(
-                                          0.15,
+                                        color: Colors.tealAccent.withValues(
+                                          alpha: 0.15,
                                         ),
                                         blurRadius: 30,
                                         spreadRadius: 2,
